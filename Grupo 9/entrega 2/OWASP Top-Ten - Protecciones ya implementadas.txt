@@ -1,0 +1,53 @@
+OWASP Top-Ten - Protecciones ya implementadas
+
+1) funcion htmlspecialchars 
+   
+    Se utiliza la funcion para escapear los caracteres especiales en los campos de formulario que completa el usuario
+    y que viajarán en el request.
+    
+    Ej:
+    
+    FormDisplay.tpl.php
+    	htmlspecialchars($action)
+    
+    index.php
+    	htmlspecialchars($mysql_cur_user_and_host)
+    	
+    AuthenticationCookie.php
+    	htmlspecialchars($default_user)
+    
+2) Sanitizacion de entradas y variables
+   
+   Ej:
+   		sanitizing.lib.php
+   				validación de links
+   				sanitización de mensajes de salida
+   				sanitización de nombres de archivos	
+   				
+3) Control de sesion
+      Ej:
+		session.lib.php
+			PMA_secureSession()
+			    $_SESSION[' PMA_token ']
+				Generación de token random genrado por la aplicación y asignado a la sesion
+				validación del token por acceso a cada nueva página (subpages)
+				
+4) Protección contra XSS
+    Ej: 
+  		Header.php
+  			header('X-XSS-Protection:1 ; mode=block'
+  			//1	Filter enabled. If a cross-site scripting attack is detected, in order to stop the attack, the browser will sanitize the page.
+  		
+5) Cifrado de datos sensibles
+   		Ej:
+   			El tipo de autenticación «cookie» utiliza el algoritmo «AES»y Glowfish para encriptar la contraseña en la cookie
+   			
+   			phpseclib
+   				AES.php
+   				Rijndael.pjp
+   				...
+   			
+   			config.sample.inc.php
+   				$cfg['blowfish_secret']
+   				
+	
