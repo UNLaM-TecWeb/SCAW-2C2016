@@ -50,4 +50,23 @@ OWASP Top-Ten - Protecciones ya implementadas
    			config.sample.inc.php
    				$cfg['blowfish_secret']
    				
+7) Ausencia de Control de Acceso a Funciones.
+
+Informacion no encontrada.
 	
+9) Utilización de componentes con vulnerabilidades conocidas.
+
+Bibliotecas externas
+phpMyAdmin incluye bibliotecas externas que pueden ser actualizadas en nuestro ambiente, siempre y cuando sean compatibles.
+
+En la documentacion ofical menciona unicamente:
+
+js/jquery
+jQuery y varias bibliotecas basadas en jQuery.
+
+vendor/
+The download kit includes various Composer packages as dependencies.
+
+Fuente: http://docs.phpmyadmin.net/es/latest/vendors.html#external-libraries
+
+El framework jQuery es ideal para realizar ataques a un sitio, ya que es un potente lenguaje de programacion y una leve vulnerabilidad en el mismo puede ser aprovechado para ataques que logren gran impacto.
